@@ -13,6 +13,7 @@ local Valiant = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
 local Raycodex = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
 
 --Properties:
 
@@ -84,8 +85,85 @@ Raycodex.TextColor3 = Color3.fromRGB(255, 255, 255)
 Raycodex.TextScaled = true
 Raycodex.TextSize = 14.000
 Raycodex.TextWrapped = true
+
+UICorner_4.Parent = Raycodex
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.Position = UDim2.new(0, 0, 0.852070987, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "destroy gui"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
 Raycodex.MouseButton1Down:connect(function()
 	loadstring(game:GetObjects("rbxassetid://5812737894")[1].Source)()
 end)
 
-UICorner_4.Parent = Raycodex
+-- Scripts:
+
+local function ZEOP_fake_script() -- Frame.Draggable (Read) 
+	local script = Instance.new('LocalScript', Frame)
+
+	frame = script.Parent.Frame --Name of the frame you wanna move
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+	--Place IN the gui NOT in the Frame , Other wise the script will break
+	--Thanks to TheManInCity (On youtube) by comenting on the video
+	--Thanks to me for uploading (lol)
+	
+	--Ps we know that Draggable got removed but this script somehow works :D
+end
+coroutine.wrap(ZEOP_fake_script)()
+local function IMNFMI_fake_script() -- TextButton.Open/Close (PUT ME IN A TEXTBUTTON) 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.MouseButton1Click:connect(function()
+	 script.Parent.Parent.Credit.Visible = not script.Parent.Parent.Visible
+	end)
+	
+	--                                                               ^
+	--]]	Change "Credit" to the name of the frame                 ^                      
+end
+coroutine.wrap(IMNFMI_fake_script)()
+local function HECGX_fake_script() -- nil.Instructions 
+	local script = Instance.new('Script', nil)
+
+	---Hello! Thank you for using this script originally by Roman On Fire on YouTube!
+	
+	--First of all- I'm dumb. I'm taking no credit for this. All credit goes to Roman On Fire.
+	
+	--SO!
+	
+	
+	----- ~Instructions~ -----
+	
+	-- 1. Make a TextButton 
+	-- 2. Make a Frame, and rename it Credit (if you don't want to touch the script)
+	--	 or rename it whatever (Menu, Rules) and then in the script you'll see what to do.
+	--3. Customize yer stuff, and make the frame invisible by unchecking "Visible."
+	
+	----- ~Done~ -----
+	
+	--And again, thank you. You may want to delete this after.
+	
+	--- ~~Published by LAClout ~~ ---
+	
+	--I don't know if this was already published by anyone else, but I'm sorry if this was.
+	
+	--P.S. Publishing this as your own is like saying "I suck at this stuff, so I'mma be a 
+	--	wannabe and say "I made this"
+end
+coroutine.wrap(HECGX_fake_script)()
+
+local function notif(str,dur)
+	game:FindService("StarterGui"):SetCore("SendNotification", {
+		Title = "BETA",
+		Text = str,
+		Icon = "rbxassetid://2005276185",
+		Duration = dur or 3
+	})
+end
